@@ -12,14 +12,8 @@ def send_email():
     destination = input('[+] Enter destination email >')
     subject = input('[+] Enter your subject >')
     message = input('[+] Enter your message >')
-    host = input('[+] Enter your host server >')
-    if host == 'gmail':
-        host = 'smpt.gmail.com'
-    elif host == 'hotmail':
-        host = 'smpt.outlook.com'
-    elif host == 'yahoo':
-        host = 'smpt.mail.yahoo.com'
-    with smtplib.SMTP(host, port=587) as connection:
+    
+    with smtplib.SMTP(smpt.gmail.com, port=587) as connection:
         connection.starttls()
         connection.login(email, passwd)
         connection.sendmail(

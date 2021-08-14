@@ -12,15 +12,22 @@ def send_email():
     destination = input('[+] Enter destination email >')
     subject = input('[+] Enter your subject >')
     message = input('[+] Enter your message >')
-    
-    with smtplib.SMTP('smpt.gmail.com', port=587) as connection:
-        connection.starttls()
-        connection.login(email, passwd)
-        connection.sendmail(
-            from_addr=email,
-            to_addrs=destination,
-            msg=f'Subject:{subject}\n\n{message}'
-        )
+    try:
+
+        with smtplib.SMTP('smpt.gmail.com', port=587) as connection:
+            connection.starttls()
+            connection.login(email, passwd)
+            connection.sendmail(
+                from_addr=email,
+                to_addrs=destination,
+                msg=f'Subject:{subject}\n\n{message}'
+            )
+
+    except:
+        print('[-] Something went wrong.')
+
+    else:
+        print('[+] Email sent.')
 
 
 send_email()

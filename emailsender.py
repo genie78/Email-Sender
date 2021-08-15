@@ -14,7 +14,7 @@ def send_email():
     message = input('[+] Enter your message >')
     try:
 
-        with smtplib.SMTP('smpt.gmail.com', port=587) as connection:
+        with smtplib.SMTP('64.233.184.108', 587) as connection:
             connection.starttls()
             connection.login(email, passwd)
             connection.sendmail(
